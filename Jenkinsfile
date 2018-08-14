@@ -37,7 +37,7 @@ node {
       def pomVersion = pom.version
       def projectName = 'reborn-config-service'
 
-      sh 'mkdir ./downloads'
+      sh 'mkdir -p ./downloads'
       //server.download(downloadSpec)
       sh 'curl -o ./downloads/app.jar "http://tinker.paulhoang.com:8081/repository/maven-releases/com/paulhoang/${projectName}/${pomVersion}/${projectName}-${pomVersion}.jar"'
       echo 'Download comeplete'

@@ -43,10 +43,10 @@ node {
       echo 'Download comeplete'
 
       echo 'Building docker image....'
-      def dockerImage = docker.build("generalmeow/${projectName}:${env.BUILD_ID}", "--build-arg APP_VERSION=${pomVersion} .")
+      def dockerImage = docker.build("generalmeow/${projectName}:${env.BUILD_ID}", ".")
 
       echo 'Pushing Docker Image....'
-      docker.withRegistry('https://registry.hub.docker.com', 'hub.docker'){
+      docker.withRegistry('https://registry.hub.docker.com', 'generalmeow-dockerhub'){
         dockerImage.push()
       }
     }

@@ -46,7 +46,8 @@ node {
       def dockerImage = docker.build("generalmeow/${projectName}:${env.BUILD_ID}", ".")
 
       echo 'Pushing Docker Image....'
-      docker.withRegistry('https://registry.hub.docker.com', 'generalmeow-dockerhub'){
+//      docker.withRegistry('https://registry.hub.docker.com', 'generalmeow-dockerhub'){
+      docker.withRegistry('http://tinker.paulhoang.com:8081/repository/tinker-docker-repo/', 'tinker-docker-repo'){
         dockerImage.push()
       }
     }
